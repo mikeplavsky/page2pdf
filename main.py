@@ -15,7 +15,6 @@ web = QWebView()
 print "loading: ", sys.argv[1] 
 
 web.load(QUrl(sys.argv[1]))
-page = web.page()
 
 def loaded(res):    
     
@@ -28,9 +27,21 @@ def loaded(res):
         prn.setOutputFormat(QPrinter.PdfFormat)    
         prn.setOutputFileName( sys.argv[2] )
     
-        page.mainFrame().print_(prn)    
+        page.mainFrame().print_(prn)   
     
-    app.exit()
+    app.exit() 
+    
+def finished(res):
 
+    if res.errorString() == "Unknown error":
+        print res.url().toString()
+    else:
+        print res.errorString()
+        
+page = web.page()
+net = page.networkAccessManager()
+
+net.finished.connect( finished )    
 page.loadFinished.connect(loaded)
+
 app.exec_()

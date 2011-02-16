@@ -1,2 +1,2 @@
-python main.py http://spb9503:85 fitnesse.pdf
+python main.py http://google.com fitnesse.pdf
 pause
