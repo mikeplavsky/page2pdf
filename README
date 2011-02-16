@@ -1,0 +1,5 @@
+Given the URL this simple script converts
+HTML page to pdf file using
+PySide package which has to be installed.
+
+PySide: http://developer.qt.nokia.com/wiki/Setting_up_PySide
